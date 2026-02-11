@@ -1,0 +1,79 @@
+{
+  "@@locale": "en",
+  "appTitle": "Shadow Beast News",
+  "@appTitle": {
+    "description": "The application title"
+  },
+  "home": "Home",
+  "notifications": "Notifications",
+  "bookmarks": "Bookmarks",
+  "personalization": "Personalization",
+  "newsSources": "News Sources",
+  "newsCategories": "News Categories",
+  "settings": "Settings",
+  "disclaimer": "Disclaimer",
+  "privacyPolicy": "Privacy Policy",
+  "language": "Language",
+  "theme": "Theme",
+  "lightMode": "Light Mode",
+  "darkMode": "Dark Mode",
+  "welcomeMessage": "Welcome to Shadow Beast",
+  "openDrawerHint": "Open the drawer to navigate",
+  "viewNotifications": "View your notifications here",
+  "customizeBookmarks": "Customize & View Bookmarks",
+  "viewPersonalizedNews": "View Personalized News",
+  "arrangeNewsSources": "Arrange your News Sources here",
+  "changeNewsCategories": "Change News Categories",
+  "notificationDetail": "This is notification detail {index}",
+  "@notificationDetail": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "hoursAgo": "{hours}h ago",
+  "@hoursAgo": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "bookmark": "Bookmark {index}",
+  "@bookmark": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "personalizedNewsFeed": "Personalized News Feed",
+  "personalizedArticle": "Personalized Article {index}",
+  "@personalizedArticle": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "personalizedArticleDescription": "This is a personalized news article based on your preferences.",
+  "disclaimerTitle": "Disclaimer",
+  "disclaimerContent": "This app provides news and information for general purposes only. While we strive to keep the information accurate and up-to-date, we make no representations or warranties of any kind about the completeness, accuracy, reliability, or availability of the information.",
+  "disclaimerResponsibility": "Users are responsible for verifying information from original sources before making decisions based on content provided in this app.",
+  "privacyPolicyTitle": "Privacy Policy",
+  "informationCollection": "Information Collection",
+  "informationCollectionContent": "We collect information that you provide directly to us, including when you create an account, update your profile, or use our services.",
+  "useOfInformation": "Use of Information",
+  "useOfInformationContent": "We use the information we collect to provide, maintain, and improve our services, personalize your experience, and communicate with you.",
+  "dataSecurity": "Data Security",
+  "dataSecurityContent": "We implement appropriate security measures to protect your personal information against unauthorized access, alteration, or destruction.",
+  "technology": "Technology",
+  "sports": "Sports",
+  "politics": "Politics",
+  "entertainment": "Entertainment",
+  "business": "Business",
+  "health": "Health",
+  "english": "English",
+  "nepali": "Nepali"
+}

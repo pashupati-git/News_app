@@ -1,0 +1,6 @@
+# Localization configuration file for ARB-based translations
+# This enables code generation for type-safe localization
+arb-dir: lib/l10n
+template-arb-file: app_en.arb
+output-localization-file: app_localizations.dart
+nullable-getter: false
