@@ -35,7 +35,7 @@ class CacheServices {
         Hive.registerAdapter(UserPreferencesAdapter());
       }
 
-      //Open all required boxes
+      //Open all required storage boxes
       _preferencesBox = await Hive.openBox(_preferencesBoxName);
       _newsBox = await Hive.openBox(_newsBoxName);
       _bookmarksBox = await Hive.openBox(_bookmarksBoxName);
@@ -110,7 +110,7 @@ class CacheServices {
 
 
     if (age > maxAge) {
-      //Cache is stale,remove it
+      //Too old! Delete it
       _newsBox.delete(key);
       return null;
     }
