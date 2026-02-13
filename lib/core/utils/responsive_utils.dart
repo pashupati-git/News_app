@@ -125,3 +125,4 @@ extension ResponsiveContext on BuildContext{
   double get cardElevation => ResponsiveUtils.getCardElevation(this);
   double get appBarHeight => ResponsiveUtils.getAppBarHeight(this);
 }
+
