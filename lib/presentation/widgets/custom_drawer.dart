@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:news_app/l10n/app_localizations.dart';
+import 'package:news_app/presentation/screens/notifications_screen.dart';
 import 'package:news_app/presentation/viewmodels/preferences_viewmodel.dart';
 
 class CustomDrawer extends ConsumerWidget {
@@ -12,15 +13,23 @@ class CustomDrawer extends ConsumerWidget {
     //Watch preferences for reactive updates
     final preferences = ref.watch(preferencesProvider);
     final isDarkMode = preferences.isDarkMode;
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = AppLocalizations.of(context);
 
     return Drawer(
       child: ListView(
         children: [
           //Beautiful drawer header with gradient
           _BuildDrawerHeader(context, l10n),
-          const Divider(height: 32),
 
+          //Navigation items
+          _buildDrawerItem(
+            context,
+            icon: Icons.notifications_outlined,
+            title: l10n.notifications,
+            subtitle: l10n.viewNotifications,
+            onTap: () => _navigateToScreen(context, const NotificationScreen()),
+          ),
+          const Divider(height: 32),
           //Theme toggle with smooth animation
           _buildThemeToggle(context, ref, isDarkMode, l10n),
 
@@ -185,7 +194,7 @@ class CustomDrawer extends ConsumerWidget {
   }
 
   ///Helper method to navigate and close drawer
-  void _navigateToSCreen(BuildContext context, Widget screen) {
+  void _navigateToScreen(BuildContext context, Widget screen) {
     Navigator.pop(context); //close drawer
     Navigator.push(context, MaterialPageRoute(builder: (context) => screen));
   }
