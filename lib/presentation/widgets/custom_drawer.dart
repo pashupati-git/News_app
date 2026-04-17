@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:news_app/l10n/app_localizations.dart';
+import 'package:news_app/presentation/screens/bookmarks_screen.dart';
+import 'package:news_app/presentation/screens/disclaimer_screen.dart';
+import 'package:news_app/presentation/screens/news_categories_screen.dart';
+import 'package:news_app/presentation/screens/news_sources_screen.dart';
 import 'package:news_app/presentation/screens/notifications_screen.dart';
+import 'package:news_app/presentation/screens/personalization_screen.dart';
+import 'package:news_app/presentation/screens/privacy_policy_screen.dart';
 import 'package:news_app/presentation/viewmodels/preferences_viewmodel.dart';
 
 class CustomDrawer extends ConsumerWidget {
@@ -28,6 +34,54 @@ class CustomDrawer extends ConsumerWidget {
             title: l10n.notifications,
             subtitle: l10n.viewNotifications,
             onTap: () => _navigateToScreen(context, const NotificationScreen()),
+          ),
+          _buildDrawerItem(
+            context,
+            icon: Icons.bookmark_outline,
+            title: l10n.bookmarks,
+            subtitle: l10n.customizeBookmarks,
+            onTap: () => _navigateToScreen(context, const BookmarksScreen()),
+          ),
+          _buildDrawerItem(
+            context,
+            icon: Icons.person_outline,
+            title: l10n.personalization,
+            subtitle: l10n.viewPersonalizedNews,
+            onTap: () =>
+                _navigateToScreen(context, const PersonalizationScreen()),
+          ),
+          _buildDrawerItem(
+            context,
+            icon: Icons.article_outlined,
+            title: l10n.newsSources,
+            subtitle: l10n.arrangeNewsSources,
+            onTap: () => _navigateToScreen(context, const NewsSourcesScreen()),
+          ),
+          _buildDrawerItem(
+            context,
+            icon: Icons.edit_outlined,
+            title: l10n.newsCategories,
+            subtitle: l10n.changeNewsCategories,
+            onTap: () =>
+                _navigateToScreen(context, const NewsCategoriesScreen()),
+          ),
+
+          const Divider(height: 32),
+
+          _buildDrawerItem(
+            context,
+            icon: Icons.info_outline,
+            title: l10n.disclaimer,
+            subtitle: l10n.disclaimer,
+            onTap: () => _navigateToScreen(context, const DisclaimerScreen()),
+          ),
+          _buildDrawerItem(
+            context,
+            icon: Icons.privacy_tip_outlined,
+            title: l10n.privacyPolicy,
+            subtitle: l10n.privacyPolicy,
+            onTap: () =>
+                _navigateToScreen(context, const PrivacyPolicyScreen()),
           ),
           const Divider(height: 32),
           //Theme toggle with smooth animation
@@ -195,7 +249,7 @@ class CustomDrawer extends ConsumerWidget {
 
   ///Helper method to navigate and close drawer
   void _navigateToScreen(BuildContext context, Widget screen) {
-    Navigator.pop(context); //close drawer
+    //Navigator.pop(context); //close drawer
     Navigator.push(context, MaterialPageRoute(builder: (context) => screen));
   }
 }
