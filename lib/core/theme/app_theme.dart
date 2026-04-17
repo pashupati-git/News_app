@@ -9,7 +9,8 @@ class AppTheme {
   AppTheme._();
 
   //primary color schemes for branding
-  static const Color _primaryColor = Color(0xFF6750A4);
+  //static const Color _primaryColor = Color(0xFF6750A4);
+  static const Color _primaryColor = Colors.red;
   static const Color _secondaryColor = Color(0xFF625B71);
 
   ///Light theme configuration
@@ -26,7 +27,7 @@ class AppTheme {
       secondary: _secondaryColor,
     ),
 
-    //AppBAr styling- consistent across all screens
+    // AppBAr styling- consistent across all screens
     appBarTheme: const AppBarTheme(
       centerTitle: true,
       elevation: 0,
@@ -61,6 +62,8 @@ class AppTheme {
     listTileTheme: const ListTileThemeData(
       contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
     ),
+
+
   );
 
   ///Dark theme configuration

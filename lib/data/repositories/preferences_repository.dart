@@ -57,6 +57,26 @@ class PreferencesRepository {
     }
   }
 
+  /// Toggle a news category on/off
+  Future<bool> toggleCategory(String category) async {
+    try {
+      final prefs = getPreferences();
+      final categories = List<String>.from(prefs.selectedCategories);
+
+      if (categories.contains(category)) {
+        categories.remove(category);
+      } else {
+        categories.add(category);
+      }
+
+      final updated = prefs.copyWith(selectedCategories: categories);
+      return await savePreferences(updated);
+    } catch (e) {
+      print('Error toggling category: $e');
+      return false;
+    }
+  }
+
   //Toggle a news source on/off
   Future<bool> toggleSources(String source) async {
     try {

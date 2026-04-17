@@ -31,7 +31,7 @@ class UserPreferences {
   factory UserPreferences.defaultPreferences() {
     return const UserPreferences(
       isDarkMode: false,
-      languageCode: 'en',
+      languageCode: 'ne',
       selectedCategories: [
         'technology',
         'sports',

@@ -54,8 +54,8 @@ class CacheServices {
   ///Get user preferences from cache
   ///Returns default preferences if none exist.
   UserPreferences getUserPreferences() {
-    final prefs = _preferencesBox.get('current');
-    return prefs ?? UserPreferences.defaultPreferences();
+    final prefss = _preferencesBox.get('current');
+    return prefss ?? UserPreferences.defaultPreferences();
   }
 
   ///Save user preferences to cache
