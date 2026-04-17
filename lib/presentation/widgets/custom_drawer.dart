@@ -19,6 +19,13 @@ class CustomDrawer extends ConsumerWidget {
         children: [
           //Beautiful drawer header with gradient
           _BuildDrawerHeader(context, l10n),
+          const Divider(height: 32),
+
+          //Theme toggle with smooth animation
+          _buildThemeToggle(context, ref, isDarkMode, l10n),
+
+          //language selector
+          _buildLanguageSelector(context,ref,preferences.languageCode,l10n)
         ],
       ),
     );
@@ -102,5 +109,76 @@ Widget _buildDrawerItem(
     ),
     onTap: onTap,
     hoverColor: Theme.of(context).colorScheme.primary.withOpacity(0.05),
+  );
+}
+
+///Theme toggle switch with icon
+Widget _buildThemeToggle(
+  BuildContext context,
+  WidgetRef ref,
+  bool isDarkMode,
+  AppLocalizations l10n,
+) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+    child: Row(
+      children: [
+        Icon(
+          isDarkMode ? Icons.dark_mode : Icons.light_mode,
+          color: Theme.of(context).colorScheme.primary,
+        ),
+        const SizedBox(width: 32),
+        Expanded(
+          child: Text(
+            isDarkMode ? l10n.darkMode : l10n.lightMode,
+            style: Theme.of(
+              context,
+            ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w500),
+          ),
+        ),
+        Switch(
+          value: isDarkMode,
+          onChanged: (value) {
+            //Update theme through ViewModel
+            ref.read(preferencesProvider.notifier).toggleTheme(value);
+          },
+        ),
+      ],
+    ),
+  );
+}
+
+///Language selector dropdown
+Widget _buildLanguageSelector(
+  BuildContext context,
+  WidgetRef ref,
+  String currentLanguage,
+  AppLocalizations l10n,
+) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+    child: Row(
+      children: [
+        Icon(Icons.language, color: Theme.of(context).colorScheme.primary),
+        const SizedBox(width: 32),
+        Expanded(
+          child: DropdownButton<String>(
+            value: currentLanguage,
+            isExpanded: true,
+            underline: const SizedBox(),
+            items: [
+              DropdownMenuItem(value: 'en', child: Text(l10n.english)),
+              DropdownMenuItem(value: 'ne', child: Text(l10n.nepali)),
+            ],
+            onChanged:(String? newValue){
+              if(newValue!=null){
+                //update language through ViewModel
+                ref.read(preferencesProvider.notifier).changeLanguage(newValue);
+              }
+            }
+          ),
+        ),
+      ],
+    ),
   );
 }

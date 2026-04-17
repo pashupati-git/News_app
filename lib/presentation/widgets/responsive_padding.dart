@@ -43,8 +43,8 @@ class ResponsivePadding extends StatelessWidget {
   }) {
     return ResponsivePadding(
       mobile: EdgeInsets.all(mobile ?? 16),
-      tablet: EdgeInsets.all(tablet ?? 16),
-      desktop: EdgeInsets.all(desktop ?? 16),
+      tablet: EdgeInsets.all(tablet ?? 24),
+      desktop: EdgeInsets.all(desktop ?? 32),
       child: child,
     );
   }
