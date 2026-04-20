@@ -37,6 +37,7 @@ class AppTheme {
     //Card styling -consistent across all screens
     cardTheme: CardThemeData(
       elevation: 1,
+      // color: Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
     ),
 
@@ -62,8 +63,6 @@ class AppTheme {
     listTileTheme: const ListTileThemeData(
       contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
     ),
-
-
   );
 
   ///Dark theme configuration
@@ -92,6 +91,7 @@ class AppTheme {
     //Card styling -consistent across all screens
     cardTheme: CardThemeData(
       elevation: 1,
+      //color:Colors.yellow,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
     ),
 
