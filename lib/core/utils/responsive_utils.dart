@@ -70,7 +70,7 @@ class ResponsiveUtils {
   }
 
   ///Get vertical spacing based on screen size
-  static double getVerticalPadding(BuildContext context) {
+  static double getVerticalSpacing(BuildContext context) {
     if (isDesktop(context)) return 24.0;
     if (isTablet(context)) return 20.0;
     return 16.0;
@@ -121,8 +121,6 @@ extension ResponsiveContext on BuildContext{
 
   int get gridColumns => ResponsiveUtils.getGridColumns(this);
   double get horizontalPadding => ResponsiveUtils.getHoizontalPadding(this);
-  double get verticalPadding => ResponsiveUtils.getVerticalPadding(this);
-  double get cardElevation => ResponsiveUtils.getCardElevation(this);
-  double get appBarHeight => ResponsiveUtils.getAppBarHeight(this);
+  double get verticalSpacing => ResponsiveUtils.getVerticalSpacing(this);
 }
 
