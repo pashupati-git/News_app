@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 //Utility class for responsive design
-//Provides breakpoints and helper methods for adaptive layouts
+//Provides breakpoints and helper methods for adaptive layouts 
 //Supports mobile, tablet and desktop screen sizes
 
 class ResponsiveUtils {
@@ -22,6 +22,7 @@ class ResponsiveUtils {
     final width = MediaQuery.of(context).size.width;
     return width >= mobileBreakpoint && width < tabletBreakpoint;
   }
+  
 
   ///Check if current screen size is desktop size
   static bool isDesktop(BuildContext context) {
