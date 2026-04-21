@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+///Bookmarks screen showing saved articles
+///Demonstrates responsive grid layout
+///Grid columns adapt based on screen size
+
 class BookmarksScreen extends ConsumerWidget {
   const BookmarksScreen({super.key});
 
