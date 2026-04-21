@@ -56,7 +56,7 @@ class BookmarksScreen extends ConsumerWidget {
   ) {
     return Card(
       elevation: context.isMobile ? 1 : 2,
-      
+
       clipBehavior: Clip.antiAlias,
       child: InkWell(
         onTap: () {
@@ -87,20 +87,24 @@ class BookmarksScreen extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      l10n.bookmark(index + 1),
-                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
+                    Expanded(
+                      child: Text(
+                        l10n.bookmark(index + 1),
+                        style: Theme.of(context).textTheme.titleMedium
+                            ?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 13,
+                            ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                       ),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
                     ),
-                    const Spacer(),
+
                     Row(
                       children: [
                         Icon(
                           Icons.access_time,
-                          size: 14,
+                          size: 12,
                           color: Theme.of(context).colorScheme.onSurfaceVariant,
                         ),
                         const SizedBox(width: 4),
@@ -111,19 +115,24 @@ class BookmarksScreen extends ConsumerWidget {
                                 color: Theme.of(
                                   context,
                                 ).colorScheme.onSurfaceVariant,
+                                fontSize: 11,
                               ),
                         ),
                         const Spacer(),
                         //Remove bookmarks button
-                        IconButton(
-                          onPressed: () {
-                            //TODO:Remove bookmark
-                          },
-                          icon: const Icon(Icons.bookmark),
-                          iconSize: 20,
-                          color: Theme.of(context).colorScheme.primary,
-                          padding: EdgeInsets.zero,
-                          constraints: const BoxConstraints(),
+                        SizedBox(
+                          width: 24,
+                          height: 24,
+                          child: IconButton(
+                            onPressed: () {
+                              //TODO:Remove bookmark
+                            },
+                            icon: const Icon(Icons.bookmark),
+                            iconSize: 20,
+                            color: Theme.of(context).colorScheme.primary,
+                            padding: EdgeInsets.zero,
+                            constraints: const BoxConstraints(),
+                          ),
                         ),
                       ],
                     ),
