@@ -93,7 +93,7 @@ class PreferencesViewModel extends Notifier<UserPreferences> {
   }
 
   ///check if category is selected
-  bool isCAtegorySelected(String category) {
+  bool isCategorySelected(String category) {
     return state.selectedCategories.contains(category);
   }
 
