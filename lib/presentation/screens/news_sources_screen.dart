@@ -68,11 +68,39 @@ class NewsSourcesScreen extends ConsumerWidget {
             //Source logo placeholder
             CircleAvatar(
               radius: 16,
-              backgroundColor:_getSourceColor(index).withOpacity(0.2),
-              
+              backgroundColor: _getSourceColor(index).withOpacity(0.2),
+              child: Text(
+                source[0],
+                style: TextStyle(
+                  color: _getSourceColor(index),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+
+            const SizedBox(width: 12),
+            Text(
+              source,
+              style: Theme.of(
+                context,
+              ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
             ),
           ],
         ),
+
+        //Enable/disable switch
+        trailing: Switch(
+          value: isEnabled,
+          onChanged: (value) {
+            //Toggle source through ViewModel
+            ref.read(preferencesProvider.notifier).toggleSource(source);
+          },
+        ),
+
+        //Optional:tap to see source details
+        onTap: () {
+          //TODO: Show source details or seyyings.
+        },
       ),
     );
   }
