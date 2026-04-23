@@ -35,7 +35,20 @@ class NewsSourcesScreen extends ConsumerWidget {
       ),
 
       //ReorderableListView allows drag-annd-drop reordering
-      //body:
+      body: ReorderableListView.builder(
+        padding: const EdgeInsets.all(16),
+        itemCount: enabledSources.length,
+        onReorder: (oldIndex, newIndex) {
+          //Update order through ViewModel
+          ref
+              .read(preferencesProvider.notifier)
+              .reorderSources(oldIndex, newIndex);
+        },
+        itemBuilder: (context, index) {
+          final source = enabledSources[index];
+          return _buildSourcesCard(context, ref, source, index);
+        },
+      ),
     );
   }
 
