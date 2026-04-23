@@ -40,4 +40,52 @@ class NewsSourcesScreen extends ConsumerWidget {
   }
 
   ///Build individual source cards with drag handle and toggle
+  Widget _buildSourcesCard(
+    BuildContext context,
+    WidgetRef ref,
+    String source,
+    int index,
+  ) {
+    //Check if source is enabled
+    final isEnabled = ref
+        .watch(preferencesProvider.notifier)
+        .isSourceEnabled(source);
+
+    return Card(
+      //Unique key required for ReorderableListView
+      key: ValueKey(source),
+      margin: const EdgeInsets.only(bottom: 12),
+      child: ListTile(
+        //Drag handle icon
+        leading: Icon(
+          Icons.drag_handle,
+          color: Theme.of(context).colorScheme.onSurfaceVariant,
+        ),
+
+        //Source name with logo placeholder
+        title: Row(
+          children: [
+            //Source logo placeholder
+            CircleAvatar(
+              radius: 16,
+              backgroundColor:_getSourceColor(index).withOpacity(0.2),
+              
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  ///Get consistent color for each source
+  Color _getSourceColor(int index) {
+    final colors = [
+      Colors.blue,
+      Colors.red,
+      Colors.green,
+      Colors.orange,
+      Colors.purple,
+    ];
+    return colors[index % colors.length];
+  }
 }
