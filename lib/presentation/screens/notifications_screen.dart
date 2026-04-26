@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+/// Notification screen showing user notifications
+/// Demonstrates list building with localized content
+/// Uses reponsive design for different screen sizes
 class NotificationScreen extends ConsumerWidget{
   const NotificationScreen({super.key});
 
