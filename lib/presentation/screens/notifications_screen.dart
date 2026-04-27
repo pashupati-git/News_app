@@ -25,7 +25,13 @@ class NotificationScreen extends ConsumerWidget {
           ),
         ],
       ),
-      //body:,
+      body: ListView.builder(
+        padding: EdgeInsets.all(context.horizontalPadding),
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return _buildNotificationCard(context, index, l10n);
+        },
+      ),
     );
   }
 
