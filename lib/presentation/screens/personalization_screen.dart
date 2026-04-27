@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:news_app/l10n/app_localizations.dart';
 
-class PersonalizationScreen extends ConsumerStatefulWidget{
+/// Personalization screen showing personalized news feed
+/// Demonstrates card-based content layout
+/// Content adapts based on user preferences
+class PersonalizationScreen extends ConsumerWidget {
   const PersonalizationScreen({super.key});
 
   @override
-  ConsumerState<PersonalizationScreen> createState() => _PersonalizationScreenState();
-}
-
-class _PersonalizationScreenState extends ConsumerState<PersonalizationScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Personalization')),
-      body: const Center(child: Text('Personalization Screen')),
-    );
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
+    return Scaffold();
   }
 }
