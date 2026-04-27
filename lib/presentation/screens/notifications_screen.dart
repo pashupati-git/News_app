@@ -25,7 +25,7 @@ class NotificationScreen extends ConsumerWidget {
           ),
         ],
       ),
-      body: const Center(child: Text('Notifications Screen')),
+      //body:,
     );
   }
 
@@ -76,20 +76,37 @@ class NotificationScreen extends ConsumerWidget {
             context,
           ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
         ),
-        subtitle:Text(
-          l10n.notificationDetail( index +1),
-          maxLines:2,
-          overflow:TextOverflow.ellipsis,
+        subtitle: Text(
+          l10n.notificationDetail(index + 1),
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
         ),
-        trailing:Column(
+        trailing: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment:CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Text(
-              l10n.hoursAgo(index+1),
-            )
+              l10n.hoursAgo(index + 1),
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
+              ),
+            ),
+            const SizedBox(height: 4),
+            // Unread indicator
+            if (index < 3)
+              Container(
+                width: 8,
+                height: 8,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary,
+                  shape: BoxShape.circle,
+                ),
+              ),
           ],
-        )
+        ),
+        onTap: () {
+          //TODO : Navigate to notification detail
+        },
       ),
     );
   }
