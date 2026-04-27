@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:news_app/core/utils/responsive_utils.dart';
 import 'package:news_app/l10n/app_localizations.dart';
 
 /// Notification screen showing user notifications
@@ -55,10 +56,41 @@ class NotificationScreen extends ConsumerWidget {
       ),
     ];
 
-    final type=types[index% types.length];
+    final type = types[index % types.length];
 
     return Card(
-      
+      margin: const EdgeInsets.only(bottom: 12),
+      elevation: context.isMobile ? 1 : 2,
+      child: ListTile(
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: context.horizontalPadding,
+          vertical: 8,
+        ),
+        leading: CircleAvatar(
+          backgroundColor: type.color.withOpacity(0.2),
+          child: Icon(type.icon, color: type.color),
+        ),
+        title: Text(
+          type.title,
+          style: Theme.of(
+            context,
+          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+        ),
+        subtitle:Text(
+          l10n.notificationDetail( index +1),
+          maxLines:2,
+          overflow:TextOverflow.ellipsis,
+        ),
+        trailing:Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment:CrossAxisAlignment.end,
+          children: [
+            Text(
+              l10n.hoursAgo(index+1),
+            )
+          ],
+        )
+      ),
     );
   }
 }
