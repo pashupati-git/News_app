@@ -11,6 +11,18 @@ class PersonalizationScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(l10n.personalization),
+        actions: [
+          IconButton(
+            onPressed: () {
+              //TODO: Show filter options
+            },
+            icon: const Icon(Icons.filter_list),
+          ),
+        ],
+      ),
+    );
   }
 }
