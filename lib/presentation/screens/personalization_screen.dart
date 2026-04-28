@@ -44,4 +44,74 @@ class PersonalizationScreen extends ConsumerWidget {
       ),
     );
   }
+
+  ///Build personalized article card
+  Widget _buildArticleCard(
+    BuildContext context,
+    int index,
+    AppLocalizations l10n,
+  ) {
+    return Card(
+      margin: const EdgeInsets.only(bottom: 16),
+      elevation: context.isMobile ? 1 : 2,
+      child: InkWell(
+        onTap: () {
+          //TODO: Navigate to article detail
+        },
+        borderRadius: BorderRadius.circular(12),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              //Article header with category badge
+              Row(
+                children: [
+                  _buildCategoryBadge(context, index),
+                  const Spacer(),
+                  Text(
+                    '${index + 1}h ago',
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                ],
+              ),
+
+              const SizedBox(height: 12),
+
+              //Article title
+              Text(
+                l10n.personalizedArticle(index + 1),
+                style: Theme.of(
+                  context,
+                ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+              ),
+
+              const SizedBox(height: 8),
+
+              //Article excerpt
+              Text(
+                l10n.personalizedArticleDescription,
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+
+              const SizedBox(height:12),
+
+              //Article footer with actions
+              Row(
+                children: [
+                  //Source
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
