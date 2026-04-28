@@ -39,7 +39,10 @@ class PersonalizationScreen extends ConsumerWidget {
           ),
 
           // Personalized articles
-          // ...List.generate(8, _buildArticleCard(context, index, l10n)),
+          ...List.generate(
+            8,
+            (index) => _buildArticleCard(context, index, l10n),
+          ),
         ],
       ),
     );
@@ -100,16 +103,71 @@ class PersonalizationScreen extends ConsumerWidget {
                 overflow: TextOverflow.ellipsis,
               ),
 
-              const SizedBox(height:12),
+              const SizedBox(height: 12),
 
               //Article footer with actions
               Row(
                 children: [
                   //Source
+                  Icon(
+                    Icons.source,
+                    size: 16,
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
+
+                  const SizedBox(width: 4),
+                  Text(
+                    'BBC News',
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+
+                  const Spacer(),
+
+                  //Bookmark button
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.bookmark_outline),
+                    iconSize: 20,
+                  ),
+
+                  //Share button
+                  IconButton(
+                    icon: const Icon(Icons.share_outlined),
+                    iconSize: 20,
+                    onPressed: () {
+                      //TODO: Share article
+                    },
+                  ),
                 ],
-              )
+              ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  /// Build category badge with color
+  Widget _buildCategoryBadge(BuildContext context, int index) {
+    final categories = ['Technology', 'Sports', 'Politics', 'Business'];
+    final colors = [Colors.blue, Colors.green, Colors.red, Colors.orange];
+
+    final category = categories[index % categories.length];
+    final color = colors[index % colors.length];
+
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      decoration: BoxDecoration(
+        color: color.withOpacity(0.2),
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Text(
+        category,
+        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+          color: color,
+          fontWeight: FontWeight.bold,
         ),
       ),
     );
