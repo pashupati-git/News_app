@@ -38,7 +38,99 @@ class PrivacyPolicyScreen extends ConsumerWidget {
                 ],
               ),
 
-              const SizedBox(height:24),
+              const SizedBox(height: 24),
+
+              // Last updated info
+              Card(
+                color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.update,
+                        size: 16,
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        'Last updated:January 26, 2026',
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 24),
+              //Privacy policy sections
+              _buildPolicySection(
+                context,
+                title: l10n.informationCollectionContent,
+                content: l10n.informationCollectionContent,
+                icon: Icons.info_outline,
+              ),
+
+              _buildPolicySection(
+                context,
+                title: l10n.useOfInformation,
+                content: l10n.informationCollectionContent,
+                icon: Icons.info_outline,
+              ),
+
+              _buildPolicySection(
+                context,
+                title: l10n.dataSecurity,
+                content: l10n.dataSecurityContent,
+                icon: Icons.security,
+              ),
+
+              const SizedBox(height: 32),
+
+              //Contact section
+              Card(
+                color: Theme.of(context).colorScheme.primaryContainer,
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.contact_mail,
+                            color: Theme.of(
+                              context,
+                            ).colorScheme.onPrimaryContainer,
+                          ),
+                          const SizedBox(width: 12),
+                          Text(
+                            'Contact Us',
+                            style: Theme.of(context).textTheme.titleMedium
+                                ?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(
+                                    context,
+                                  ).colorScheme.onPrimaryContainer,
+                                ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'For privacy concerns,contact us at privacy@shadowbeast.com',
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: Theme.of(
+                            context,
+                          ).colorScheme.onPrimaryContainer,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),
